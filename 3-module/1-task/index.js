@@ -1,3 +1,10 @@
 function namify(users) {
-  // ваш код...
+    let names = users.map(function (user) {
+        return user.name
+    });
+    return names
 }
+
+
+
+
