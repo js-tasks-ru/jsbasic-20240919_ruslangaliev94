@@ -1,62 +1,61 @@
 function initCarousel() {
 
-	let arowLeft = document.querySelector('.carousel__arrow_left');
-	let arowRight = document.querySelector('.carousel__arrow_right');
-	let carouselInner = document.querySelector('.carousel__inner');
-	let carouselSlide = document.querySelectorAll('.carousel__slide');
+  let arowLeft = document.querySelector('.carousel__arrow_left');
+  let arowRight = document.querySelector('.carousel__arrow_right');
+  let carouselInner = document.querySelector('.carousel__inner');
+  let carouselSlide = document.querySelectorAll('.carousel__slide');
 
-	let currentSlide = 0;
-	let carouselWidth = carouselInner.offsetWidth;
-
-
-	let carousel = document.querySelector('.carousel');
+  let currentSlide = 0;
+  let carouselWidth = carouselInner.offsetWidth;
 
 
-	arowLeft.style.display = 'none';
+  let carousel = document.querySelector('.carousel');
 
 
-	carousel.addEventListener('click', (e) => {
-		if (e.target.classList.contains('carousel__arrow_left')) {
-			console.log('клик лево');
-			currentSlide--;
+  arowLeft.style.display = 'none';
 
 
-			console.log(currentSlide * carouselWidth);
-
-			carouselInner.style.transform = `translateX(${-currentSlide * carouselWidth}px)`;
-
-
-
-			if (currentSlide <= 0) {
-				arowLeft.style.display = 'none';
-			} else {
-				arowLeft.style.display = 'block';
-			}
+  carousel.addEventListener('click', (e) => {
+    if (e.target.classList.contains('carousel__arrow_left')) {
+      console.log('клик лево');
+      currentSlide--;
 
 
-			if (currentSlide < carouselSlide.length - 1) {
-				arowRight.style.display = 'block';
-			}
+      console.log(currentSlide * carouselWidth);
+
+      carouselInner.style.transform = `translateX(${-currentSlide * carouselWidth}px)`;
 
 
-		} else if (e.target.classList.contains('carousel__arrow_right')) {
-			console.log('клик право');
-			currentSlide++;
+      if (currentSlide <= 0) {
+        arowLeft.style.display = 'none';
+      } else {
+        arowLeft.style.display = 'block';
+      }
 
-			carouselInner.style.transform = `translateX(${-currentSlide * carouselWidth}px)`;
 
-			if (currentSlide >= carouselSlide.length - 1) {
-				arowRight.style.display = 'none';
-			} else {
-				arowRight.style.display = 'block';
-			}
-			if (currentSlide > 0) {
-				arowLeft.style.display = 'block';
-			}
-		}
+      if (currentSlide < carouselSlide.length - 1) {
+        arowRight.style.display = 'block';
+      }
 
-		console.log(currentSlide)
-		console.log(carouselWidth)
 
-	})
+    } else if (e.target.classList.contains('carousel__arrow_right')) {
+      console.log('клик право');
+      currentSlide++;
+
+      carouselInner.style.transform = `translateX(${-currentSlide * carouselWidth}px)`;
+
+      if (currentSlide >= carouselSlide.length - 1) {
+        arowRight.style.display = 'none';
+      } else {
+        arowRight.style.display = 'block';
+      }
+      if (currentSlide > 0) {
+        arowLeft.style.display = 'block';
+      }
+    }
+
+    console.log(currentSlide);
+    console.log(carouselWidth);
+
+  });
 }
