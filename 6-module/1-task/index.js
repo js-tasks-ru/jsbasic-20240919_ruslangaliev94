@@ -12,7 +12,46 @@
  *      }
  *
  */
+
+
 export default class UserTable {
+
   constructor(rows) {
+    this.rows = rows;
+    this.render();
+  }
+
+  render() {
+    this.elem = document.createElement('table');
+    this.elem.innerHTML = `
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Возраст</th>
+          <th>Зарплата</th>
+          <th>Город</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        ${this.rows
+      .map(
+        ({name, age, salary, city}) =>
+          `<tr>
+                <td>${name}</td>
+                <td>${age}</td>
+                <td>${salary}</td>
+                <td>${city}</td>
+                <td><button>X</button></td>
+              </tr>`
+      )
+      .join('')}
+      </tbody>`;
+    this.elem.querySelectorAll('button').forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest('tr').remove();
+      });
+    });
   }
 }
+
