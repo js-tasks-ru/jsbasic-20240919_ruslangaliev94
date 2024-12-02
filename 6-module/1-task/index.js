@@ -35,8 +35,7 @@ export default class UserTable {
       </thead>
       <tbody>
         ${this.rows
-      .map(
-        ({name, age, salary, city}) =>
+      .map(({name, age, salary, city}) =>
           `<tr>
                 <td>${name}</td>
                 <td>${age}</td>
