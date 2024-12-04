@@ -5,9 +5,7 @@ function camelize(str) {
             return item[0].toUpperCase() + item.slice(1).toLowerCase();
         }
         return item;
-
     });
-
     return camelized.join('');
 }
 
